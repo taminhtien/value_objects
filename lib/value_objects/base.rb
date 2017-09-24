@@ -16,7 +16,9 @@ module ValueObjects
     class << self
 
       def load(value)
-        new(value) if value
+        return nil if value.nil?
+        value = {} if value.blank? 
+        new(value)
       end
 
       def dump(value)
